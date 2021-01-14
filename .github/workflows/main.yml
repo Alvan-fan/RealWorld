@@ -53,8 +53,10 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
+          export NVM_DIR=~/.nvm
+          source ~/.nvm/nvm.sh    
           cd /root/realworld-nuxtjs
           wget https://github.com/Alvan-fan/RealWorld/releases/latest/download/release.tgz -O release.tgz
-          tar zxvf release.tgz
+          tar zxvf release.tgz 
           npm install --production
           pm2 reload pm2.config.json
